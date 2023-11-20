@@ -5,3 +5,8 @@
 ```
 kubectl get pods --all-namespaces | grep -v -e "Completed" -e "Running"
 ```
+## port forward
+
+```
+kubectl port-forward -n dsp dsp-fpe-db-6458bf568-4v2fj 7200:7200
+```
