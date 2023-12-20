@@ -17,3 +17,18 @@ docker system prune -a
 ```
 docker run -d -p 7201:7200 --name graphdb docker.io/ontotext/graphdb:10.5.0
 ```
+
+## mount a local directory and store the data from graphdb to persist it
+
+```
+docker run -d -p 7201:7200 -v $(pwd)/graphdb-data:/opt/graphdb/home/data --name graphdb docker.io/ontotext/graphdb:10.5.0
+```
+
+## make a docker volume and mount that instead of the local directory
+
+```
+docker volume create graphdb-data
+```
+```
+docker run -d -p 7202:7200 -v graphdb-data:/opt/graphdb/home/data --name graphdb001 docker.io/ontotext/graphdb:10.5.0
+```
