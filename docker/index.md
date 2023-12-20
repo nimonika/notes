@@ -32,3 +32,14 @@ docker volume create graphdb-data
 ```
 docker run -d -p 7202:7200 -v graphdb-data:/opt/graphdb/home/data --name graphdb001 docker.io/ontotext/graphdb:10.5.0
 ```
+## stop a container
+
+```
+docker rm -f graphdb001
+```
+
+## remove a volume
+```
+docker volume remove graphdb-data
+```
+
