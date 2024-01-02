@@ -22,3 +22,9 @@ kubectl create job dsp-pro-load-data-manual -n dsp --dry-run=client --from=cronj
 ```
 kubectl -n dsp cp ~/Downloads/<file-to-move> dsp-bathing-waters-db-<pod-id>:/fuseki/databases/ds_again.nq.gz -c dsp-bathing-waters-db`
 ```
+
+## change context
+
+```
+kubectx <context-nmae>
+```
