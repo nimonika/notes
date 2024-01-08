@@ -43,3 +43,10 @@ docker rm -f graphdb001
 docker volume remove graphdb-data
 ```
 
+### docker-compose
+
+## force the recreation
+
+```
+docker-compose up --force-recreate
+```
