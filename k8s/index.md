@@ -28,3 +28,8 @@ kubectl -n dsp cp ~/Downloads/<file-to-move> dsp-bathing-waters-db-<pod-id>:/fus
 ```
 kubectx <context-nmae>
 ```
+## Given a sealed secret file, create a sealed secret
+
+```
+cat auth-secret.yaml | kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system --format yaml > sealed-secret.yaml
+```
