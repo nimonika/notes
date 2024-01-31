@@ -31,15 +31,16 @@ kubectx <context-nmae>
 
 ## Create a secret in kubernetes
 ```
-echo -n "http://admin:<<password>>:8080/repositories/defra-aims-001/statements" | kubectl create secret generic aims-dsp -n dsp --dry-run=client --from-file=sparqlUpdateEndpoint=/dev/stdin -o yaml > secret2.yaml
-```
-## Given a sealed secret file, create a sealed secret
-On test
+echo -n "http://<usernamer>:<password>@graphdb-live.agrimetrics.co.uk:8080/repositories/defra-aims-001/statements" | kubectl create secret generic <namespace> -n dsp --dry-run=client --from-file=sparqlUpdateEndpoint=/dev/stdin -o yaml > secret2.yaml
 
 ```
-cat auth-secret.yaml | kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system --format yaml > sealed-secret.yaml
+## Given a sealed secret file, create a sealed secret
+On test, using the secrets file generated above
+
+```
+cat <secret-file>.yaml | kubeseal --controller-name=sealed-secrets --controller-namespace=kube-system --format yaml > sealed-secret.yaml
 ```
 On live, note the difference in the name of the kubeseal controller
 ```
-cat auth-secret.yaml | kubeseal --controller-name=sealed-secrets-controller --controller-namespace=kube-system --format yaml > sealed-secret.yaml
+cat <secret-file>.yaml | kubeseal --controller-name=sealed-secrets-controller --controller-namespace=kube-system --format yaml > sealed-secret.yaml
 ```
