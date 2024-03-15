@@ -5,6 +5,8 @@ ansible-vault encrypt group_vars/graphdb-test
 ansible-vault decrypt group_vars/graphdb-test
 
 ```
+## run the ansible playbpook
+
 Restart after making any changes including creating new users
 ```
 ansible-playbook graphdb-test.yml -i inventories/test -l graphdb-masters -t settings,restart --vault-password-file inventories/vault_pass.txt
